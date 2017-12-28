@@ -8,7 +8,7 @@
 
 # JSON 파일 watcha.json 파일들에 들어있는 영화 정보를 읽어와서
 
-# movies = JSON.parse(File.read('watcha.json'))
+movies = JSON.parse(File.read('watcha.json'))
 
 # ap Rails.root.to_s
 # ap movies["cards"][0]["items"][0]["item"]["directors"][0]["name"]
@@ -21,41 +21,41 @@
 #   directors: movies["cards"][0]["items"][0]["item"]["directors"][0]["name"]
 # )
 
-# list = movies["cards"]
-# # ap list
-# list.each do |movie|
-#   # ap movie["items"][0]["item"]["title"]
-#   Movie.create(
-#     title: movie["items"][0]["item"]["title"],
-#     poster: movie["items"][0]["item"]["poster"]["original"],
-#     genre: movie["items"][0]["item"]["main_genre"],
-#     nation: movie["items"][0]["item"]["nation"],
-#     directors: movie["items"][0]["item"]["directors"][0]["name"]
-#   )
-# end
-
-User.create(
-  email: "admin@admin.com",
-  password: "123123",
-  password_confirmation: "123123",
-  nickname: "관리자",
-  role: "admin"
-)
-
-User.create(
-  email: "man@man.com",
-  password: "123123",
-  password_confirmation: "123123",
-  nickname: "매니저",
-  role: "manager"
-)
-
-User.create(
-  email: "asd@asd.com",
-  password: "123123",
-  password_confirmation: "123123",
-  nickname: "일반유저",
-)
+list = movies["cards"]
+# ap list
+list.each do |movie|
+  # ap movie["items"][0]["item"]["title"]
+  Movie.create(
+    title: movie["items"][0]["item"]["title"],
+    remote_poster_url: movie["items"][0]["item"]["poster"]["original"],
+    genre: movie["items"][0]["item"]["main_genre"],
+    nation: movie["items"][0]["item"]["nation"],
+    directors: movie["items"][0]["item"]["directors"][0]["name"]
+  )
+end
+# 
+# User.create(
+#   email: "admin@admin.com",
+#   password: "123123",
+#   password_confirmation: "123123",
+#   nickname: "관리자",
+#   role: "admin"
+# )
+#
+# User.create(
+#   email: "man@man.com",
+#   password: "123123",
+#   password_confirmation: "123123",
+#   nickname: "매니저",
+#   role: "manager"
+# )
+#
+# User.create(
+#   email: "asd@asd.com",
+#   password: "123123",
+#   password_confirmation: "123123",
+#   nickname: "일반유저",
+# )
 
 
 # Movie.create(
