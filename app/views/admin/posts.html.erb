@@ -20,7 +20,7 @@
             <td><%= post.title %></td>
             <td><%= post.content %></td>
             <td><%= post.user.nickname %></td>
-            <td><img src="<%= post.image.small %>"></td>
+            <td><img src="<%= post.image.thumb %>"></td>
             <td>
               <%= link_to "삭제", "/admin/posts_destroy/#{post.id}", class: 'btn btn-primary', method: :delete, data: {confirm: "진짜 삭제?"} %><br>
             </td>

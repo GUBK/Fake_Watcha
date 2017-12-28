@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '/admin/index'# => 'admin#index'
+  get '/admin/users' => 'admin#index'
   get '/admin/posts'
   get '/admin/reviews'
 
