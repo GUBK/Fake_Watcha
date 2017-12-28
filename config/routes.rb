@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   get '/admin/users' => 'admin#index'
   get '/admin/posts'
   get '/admin/reviews'
+  get '/admin/movies'
 
   delete '/admin/posts_destroy/:id' => 'admin#posts_destroy'
   delete '/admin/reviews_destroy/:id' => 'admin#reviews_destroy'
+  delete '/admin/movies_destroy/:id' => 'admin#movies_destroy'
 
 
   put '/admin/change_to_manager/:id' => 'admin#change_to_manager'

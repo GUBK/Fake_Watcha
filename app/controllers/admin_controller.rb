@@ -23,6 +23,16 @@ class AdminController < ApplicationController
     redirect_to :back, notice: "#{params[:id]}번 게시글 삭제됨"
   end
 
+  def movies
+    @movies = Movie.all
+  end
+
+  def movies_destroy
+    @movies = Movie.find(params[:id])
+    @movies.destroy
+    redirect_to :back, notice: "#{params[:id]}번 영화 삭제됨"
+  end
+
   def change_to_manager
     user = User.find(params[:id])
     user.update(
