@@ -1,0 +1,37 @@
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Watcah</h1>
+      <p class="lead text-muted">영화평점 사이트 와챠</p>
+      <p>
+        <%= link_to "게시판", posts_path, class: "btn btn-primary"%>
+        <!-- <a href="/posts" class="btn btn-primary">게시판</a> -->
+        <%#= if check_admin %>
+          <%= link_to "영화 추가하기", new_movie_path, class: "btn btn-secondary" if check_admin %>
+          <!-- <a href="/movies/new" class="btn btn-secondary">영화 추가하기</a> -->
+        <%# end %>
+      </p>
+    </div>
+    </section>
+
+    <div class="album text-muted">
+    <div class="container">
+      <div class="row">
+
+        <% @movies.each do |movie| %>
+          <div class="card">
+            <img height="250px" src="<%= movie.poster %>" alt="Card image cap">
+            <p class="card-title">평점: <%= movie.average == 0 ? "리뷰 없음" : movie.average  %></p>
+            <a class="card-text" href="/movies/<%= movie.id %>">
+                <%= movie.title %>
+                <%#= movie.genre %>
+                <%#= movie.nation %>
+                <%#= movie.directors %>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

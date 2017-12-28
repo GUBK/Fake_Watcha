@@ -1,0 +1,9 @@
+<h1> 영화 추가하기 </h1>
+<%= form_tag movies_path, method: "post", multipart: true do %>
+  <p>제목 : <%= text_field_tag :title %></p><rb>
+  <p>장르 : <%= text_field_tag :genre %></p><rb>
+  <p>국가  : <%= text_field_tag :nation %></p><rb>
+  <p>감독 : <%= text_field_tag :directors %></p><rb>
+  <p>포스터 : <%= file_field_tag :poster %></p><rb>
+  <%= submit_tag "영화만들기" %>
+<% end %>

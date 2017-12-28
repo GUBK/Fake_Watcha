@@ -1,0 +1,44 @@
+<!-- <p id="notice"><%#= notice %></p> -->
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user.nickname %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <img src="<%= @post.image.small %>">
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+<div class="card" style="width: 70rem;">
+  <h4 class="card-header">댓글목록</h4>
+  <form action="/posts/<%= @post.id %>/add_comment/<%= current_user.id %>">
+    <div class="form-group">
+      <input type="text" name="content" class="form-control" placeholder="새로운 댓글을 입력하세요">
+    </div>
+  </form>
+
+  <% @post.comments.reverse.each do |cm| %>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <h6 class="list-group-No"><%= cm.id %></h6>
+        <p class="list-group-title"><%= cm.user.nickname %></p>
+        <h4 class="list-group-text"><%= cm.content %></h4>
+        <p class="list-group-text"><%= cm.created_at %></p>
+      </li>
+    </ui>
+  <% end %>
+</div>
